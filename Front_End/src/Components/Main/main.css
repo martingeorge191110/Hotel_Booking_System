@@ -1,0 +1,8 @@
+:root {
+    --secondary-color: white;
+    --primary-color: rgb(2, 2, 66);
+}
+.mainP{
+    min-height: 100vh;
+    background-color: var(--primary-color);
+}

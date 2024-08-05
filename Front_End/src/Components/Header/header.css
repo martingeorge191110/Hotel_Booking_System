@@ -1,0 +1,70 @@
+:root {
+    --secondary-color: white;
+    --primary-color: rgb(2, 2, 66);
+    --link-shadow: rgba(0, 0, 0, 0.1);
+}
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: var(--primary-color);
+}
+header nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem;
+    color: var(--secondary-color);
+}
+header nav ul{
+    list-style: none;
+    display: flex;
+}
+header nav ul li {
+    margin: 0 2rem;
+}
+header nav a{
+    color: var(--secondary-color);
+    text-decoration: none;
+    display: inline-flex;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 8px 10px var(--link-shadow), 0 4px 8px var(--link-shadow);
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    width: 110%;
+    justify-content: space-between;
+}
+header .navOne h1{
+    width: 20%;
+}
+header .navOne h1 span{
+    display: inline-flex;
+    width:0.1rem;
+    height: 2rem;
+    background-color: var(--secondary-color);
+}
+header .navTwo {
+    justify-content: center;
+}
+header nav a:hover {
+    box-shadow: 0 4px 6px var(--secondary-color), 0 1px 3px var(--primary-color);
+}
+header .navOne ul li a,
+header nav .active{
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    box-shadow:  0 0 10px var(--secondary-color);
+}
+header .navOne ul li a:hover,
+header nav .active:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    box-shadow: 0 4px 6px var(--primary-color), 0 1px 3px var(--primary-color);
+}

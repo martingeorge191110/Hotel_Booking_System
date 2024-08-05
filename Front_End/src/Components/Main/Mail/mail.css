@@ -1,0 +1,23 @@
+.mail {
+    color: var(--secondary-color);
+    padding: 2rem;
+}
+.mail input {
+    padding: 0.7rem 1.3rem;
+    border-radius: 0.5rem;
+    width: 21rem;
+    outline: none;
+    border: none;
+    margin: 1rem;
+}
+.mail button {
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    background-color:rgb(36, 36, 180) ;
+    color: var(--secondary-color);
+}
+.mail h3{
+    font-size: 1rem;
+}
