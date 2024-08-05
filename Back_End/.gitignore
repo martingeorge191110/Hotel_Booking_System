@@ -1,0 +1,5 @@
+# Node modules directory
+node_modules/
+
+# Configuration file with sensitive data
+.env
