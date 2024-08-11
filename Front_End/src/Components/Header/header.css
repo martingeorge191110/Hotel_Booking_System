@@ -47,6 +47,38 @@ header .navOne h1 span{
     height: 2rem;
     background-color: var(--secondary-color);
 }
+header .navOne .profile{
+    position: relative;
+}
+header .navOne .profile div {
+    position: absolute;
+    background-color: var(--primary-color);
+    width: 120%;
+    top: 3rem;
+    left: 0rem;
+    list-style-type: none;
+    overflow: hidden;
+    max-height: 0;
+    box-shadow: 0 0 10px white;
+    border-radius: 1rem;
+    opacity: 0;
+    z-index: 10000;
+    transition:  0.5s ease-in-out;
+}
+header .navOne .profile .activeDiv {
+    max-height: 12rem;
+    opacity: 1;
+}
+header .navOne .profile div button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.4rem;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+}
+
 header .navTwo {
     justify-content: center;
 }

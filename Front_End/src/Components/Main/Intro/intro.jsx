@@ -10,12 +10,9 @@ import { DateRange } from 'react-date-range';
 import { format } from "date-fns";
 import Input from "../../Input/input";
 import {  Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useLocation } from "react-router-dom/cjs/react-router-dom";
 
 
 export default function Intro () {
-
-    const location = useLocation()
 
     const destRef = useRef(null)
 
@@ -79,7 +76,7 @@ export default function Intro () {
             <div className="intro">
                 <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem officia porro perferendis dolore </p>
-                <Link to="/register">Register / Sign In</Link>
+                {/* <Link to="/register">Register / Sign In</Link> */}
                 <div className="search">
                 <div className="location">
                     <FontAwesomeIcon className="activeOpacity" icon={faMapMarkerAlt} />

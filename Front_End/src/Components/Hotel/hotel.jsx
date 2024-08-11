@@ -12,7 +12,6 @@ export default function Hotel () {
     const inputRef = useRef(null)
     const location = useHistory()
 
-
     const [dest,setDest] = useState(
         location.location.state ? location.location.state.dest : ""
     )
@@ -77,6 +76,7 @@ export default function Hotel () {
         }
     }
 
+    
     return (
         <>
             <section className="hotel">
