@@ -1,6 +1,7 @@
 :root {
-    --secondary-color: white;
     --primary-color: rgb(2, 2, 66);
+    --secondary-color: white;
+    --highlight-color: rgb(210, 210, 0);
     --link-shadow: rgba(0, 0, 0, 0.1);
 }
 header {
@@ -29,9 +30,9 @@ header nav a{
     color: var(--secondary-color);
     text-decoration: none;
     display: inline-flex;
-    padding: 0.5rem 2rem;
-    border-radius: 2rem;
-    box-shadow: 0 8px 10px var(--link-shadow), 0 4px 8px var(--link-shadow);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    border: 0.1rem solid var(--secondary-color);
     transition: 0.5s;
     display: flex;
     align-items: center;
@@ -40,6 +41,7 @@ header nav a{
 }
 header .navOne h1{
     width: 20%;
+    color: var(--highlight-color);
 }
 header .navOne h1 span{
     display: inline-flex;
@@ -50,24 +52,42 @@ header .navOne h1 span{
 header .navOne .profile{
     position: relative;
 }
+header .navOne .profile a{
+    color: var(--secondary-color);
+    font-weight: 700;
+    width: 100%;
+    cursor: pointer;
+}
 header .navOne .profile div {
     position: absolute;
     background-color: var(--primary-color);
-    width: 120%;
-    top: 3rem;
-    left: 0rem;
+    width: 200px; /* Set a fixed width for the dropdown */
+    top: 4rem; /* Position below the profile button */
+    left: 0; /* Align dropdown to the right */
     list-style-type: none;
     overflow: hidden;
-    max-height: 0;
-    box-shadow: 0 0 10px white;
-    border-radius: 1rem;
-    opacity: 0;
+    max-height: 0; /* Start with hidden dropdown */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    opacity: 0; /* Start with hidden dropdown */
     z-index: 10000;
-    transition:  0.5s ease-in-out;
+    transition: max-height 03s ease-out, opacity 0.3s ease-out; /* Smooth transitions */
 }
+
 header .navOne .profile .activeDiv {
-    max-height: 12rem;
-    opacity: 1;
+    max-height: 15rem; /* Increased height to accommodate more content */
+    opacity: 1; /* Show dropdown */
+}
+header .navOne .profile div li,
+header .navOne .profile li button{
+    transition: 0.2s;
+}
+
+header .navOne .profile div li:hover, 
+header .navOne .profile div li:hover > button {
+    background-color: var(--highlight-color); 
+    color: var(--primary-color);
+    cursor: pointer;
 }
 header .navOne .profile div button {
     width: 100%;
@@ -83,20 +103,22 @@ header .navTwo {
     justify-content: center;
 }
 header nav a:hover {
-    box-shadow: 0 4px 6px var(--secondary-color), 0 1px 3px var(--primary-color);
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
 }
-header .navOne ul li a,
+header .navOne a{
+    background-color: var(--primary-color);
+}
 header nav .active{
     font-size: 1rem;
     font-weight: 700;
-    background-color: var(--secondary-color);
+    background-color: var(--highlight-color);
     color: var(--primary-color);
-    border: 1px solid var(--secondary-color);
-    box-shadow:  0 0 10px var(--secondary-color);
+    border: 0.1rem solid var(--highlight-color);
 }
-header .navOne ul li a:hover,
+header nav a:hover,
 header nav .active:hover {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    box-shadow: 0 4px 6px var(--primary-color), 0 1px 3px var(--primary-color);
-}
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+    border: 0.1rem solid var(--highlight-color);
+} 

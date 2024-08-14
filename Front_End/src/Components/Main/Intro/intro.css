@@ -1,11 +1,12 @@
-.mainP .intro{
+.mainP .intro {
     width: 100%;
     height: 65vh;
     text-align: left;
     color: var(--secondary-color);
     font-weight: 700;
-    padding: 10.5rem ;
+    padding: 10.5rem;
 }
+
 .mainP .intro button {
     font-size: 15px;
     font-weight: 700;
@@ -18,12 +19,14 @@
     box-shadow: 0 0 10px var(--secondary-color);
     transition: 0.5s;
 }
+
 .mainP .intro button:hover {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     box-shadow: 0 4px 6px var(--primary-color), 0 1px 3px var(--primary-color);
     border: 1px solid var(--secondary-color);
 }
+
 .mainP .search {
     width: 100%;
     margin-top: 3rem;
@@ -36,10 +39,12 @@
     border-radius: 0.5rem;
     background-color: var(--secondary-color);
 }
+
 .mainP .search div .activeOpacity {
     opacity: 0.5;
 }
-.mainP .search .location input{
+
+.mainP .search .location input {
     outline: none;
     border: none;
     opacity: 0.5;
@@ -47,64 +52,75 @@
     background-color: transparent;
     color: var(--primary-color);
 }
+
 .mainP .search .location input::placeholder {
     color: var(--primary-color);
 }
+
 .mainP .search .date {
     position: relative;
-    cursor:pointer;
+    cursor: pointer;
 }
+
 .mainP .search .date .dateRange {
     display: none;
     position: absolute;
-    top:4rem;
+    top: 4rem;
     z-index: 100;
     left: -2rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 6px var(--primary-color), 0 1px 3px var(--primary-color);
 }
-.mainP .search .date .active{
-    display:block;
+
+.mainP .search .date .active {
+    display: block;
 }
-.mainP .search .numbers .active{
-    display:flex;
+
+.mainP .search .numbers .active {
+    display: flex;
 }
-.mainP .search .submit{
+
+.mainP .search .submit {
     background-color: var(--primary-color);
     border-radius: 0.5rem;
     padding: 0.7rem;
     color: var(--secondary-color);
     border: none;
 }
+
 .mainP .search .numbers {
     position: relative;
     cursor: pointer;
 }
-.mainP .search .numbers ul{
+
+.mainP .search .numbers ul {
     position: absolute;
     padding: 0.5rem;
-    top:3.5rem;
+    top: 3.5rem;
     list-style: none;
     background-color: var(--secondary-color);
     display: none;
-    flex-direction:column ;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    border-radius:0.5rem;
+    border-radius: 0.5rem;
     box-shadow: 0 0 6px var(--primary-color), 0 1px 3px var(--primary-color);
     z-index: 800;
 }
-.mainP .search .numbers ul li{
+
+.mainP .search .numbers ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0.1rem 0;
 }
-.mainP .search .numbers ul li span{
+
+.mainP .search .numbers ul li span {
     width: 7rem;
     font-weight: 700;
 }
-.mainP .search .numbers ul li button{
+
+.mainP .search .numbers ul li button {
     border: 2px solid var(--primary-color);
     background-color: var(--secondary-color);
     color: var(--primary-color);

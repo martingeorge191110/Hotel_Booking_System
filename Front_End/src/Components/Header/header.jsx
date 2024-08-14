@@ -28,11 +28,12 @@ export default function Header() {
     const userData = useSelector(state => state.userInf)
 
     useEffect(() => {
+        // localStorage.clear()
+        // th=/; expires=Thu, 01 Jan 2025 00:00:00 UTC; Secure; SameSite=None"
         if (userData) {
             setAuth(true);
             setUser({
-                userName: userData.data.userName,
-                userEmail: userData.data.userEmail
+                userName: userData.data.userName
             });
         } else {
             setAuth(false);
@@ -41,7 +42,6 @@ export default function Header() {
                 userEmail: ""
             });
         }
-        console.log(userData)
     }, [userData]);
 
     useEffect(() => {
