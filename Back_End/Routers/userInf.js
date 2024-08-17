@@ -1,12 +1,14 @@
 import express from "express"
-import { addUser, getUser } from '../Controllers/userControll.js'
-import { verifyUser } from "../Controllers/TokenVerification/verifyToken.js"
+import { addUser, getUser, getProfile, updateUser } from '../Controllers/userControll.js'
+import { verifyToken } from "../Controllers/TokenVerification/verifyToken.js"
 
 const router = express.Router()
 
 
 router.route("/addUser").post(addUser)
-router.post("/getUser", verifyUser, getUser)
+router.post("/getUser", getUser)
+router.post("/getId",verifyToken, getProfile)
+router.route("/updateUser").put(verifyToken ,updateUser)
 
 
 export default router

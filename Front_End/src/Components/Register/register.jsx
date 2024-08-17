@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { userLogIn } from "../Store/action";
 import './register.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Register() {
     const signUpButton = useRef(null);
@@ -42,11 +43,9 @@ export default function Register() {
 
             const data = await response.json();
 
-            // Set the token as a cookie
-            document.cookie = `key=${data.token}; path=/; expires=Thu, 01 Jan 2025 00:00:00 UTC; Secure; SameSite=None`;
-
             // Store user information in local storage
             localStorage.setItem("user", JSON.stringify(data));
+            localStorage.setItem("token", data.token)
 
             // Dispatch login action
             dispatch(userLogIn(data));
@@ -96,12 +95,6 @@ export default function Register() {
 
             const data = await response.json();
 
-            // Store the user and token
-            localStorage.setItem("user", JSON.stringify({ userName: data.userName, token: data.token }));
-
-            // Set the token as a cookie
-            document.cookie = `key=${data.token}; path=/; expires=Thu, 01 Jan 2025 00:00:00 UTC; Secure; SameSite=None`;
-
             // Clear inputs
             setUsName(""); 
             setUsEmail(""); 
@@ -145,7 +138,7 @@ export default function Register() {
                             <span>or use your account</span>
                             <input onChange={(e) => changeLoginHandler(e.currentTarget.value, "email")} type="email" value={email} placeholder="Email" />
                             <input onChange={(e) => changeLoginHandler(e.currentTarget.value, "password")} type="password" value={password} placeholder="Password" />
-                            <a href="#">Forgot your password?</a>
+                            <Link>Forgot your password?</Link>
                             <button onClick={(e) => { e.preventDefault(); signIn(); }}>Sign In</button>
                         </form>
                     </div>

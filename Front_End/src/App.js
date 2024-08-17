@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Flight from './Components/Flight/flight';
 import Result from './Components/Flight/Result/result';
 import OneHotel from './Components/Hotel/OneHotel/oneHote';
+import Profile from './Components/Profile/profile';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/register" exact component={Register}/>
           <Route path="/flights" exact component={Flight}/>
           <Route path="/hotels/:id" exact component={OneHotel}/>
+          <Route path="/user/:id" exact component={Profile}/>
           {/* <Route path="/result" exact component={Result}/> */}
           <Route exact component={MainPage}/>
           </Switch>

@@ -1,146 +1,273 @@
+/* Hotel Wrapper Styling */
 .hotelWrapper {
-   width: 90%;
-   max-width: 1200px;
-   margin: 14rem auto;
-   padding: 20px;
-   border-radius: 8px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   background-color: #fff;
-   display: flex;
-   flex-direction: column; /* Stack items vertically */
- }
- 
- .bookNow {
-   background-color: #007bff;
-   color: #fff;
-   border: none;
-   padding: 10px 20px;
-   border-radius: 5px;
-   cursor: pointer;
-   font-size: 16px;
-   font-weight: bold;
-   transition: background-color 0.3s;
-   margin-left: auto; /* Align button to the right */
-   transform: translate(10px,6rem);
- }
- 
- .bookNow:hover {
-   background-color: #0056b3;
- }
- 
- .hotelTitle {
-   font-size: 2.5rem;
-   margin: 10px 0;
-   color: #333;
- }
- 
- .hotelAddress {
-   font-size: 1.2rem;
-   color: #666;
-   margin-bottom: 10px;
-   display: flex;
-   align-items: center;
- }
- 
- .hotelAddress .faLocationDot {
-   margin-right: 10px;
-   color: #007bff;
- }
- 
- .hotelDistance, .hotelPriceHighlight {
-   display: block;
-   font-size: 1.1rem;
-   margin: 10px 0;
-   color: #333;
- }
- 
- .hotelPriceHighlight {
-   font-weight: bold;
-   color: #28a745;
- }
- 
- .hotelImages {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 2rem;
- }
- 
- .hotelImgWrapper {
-   flex: 1 1 auto;
-   max-width: 20rem; /* Minimum width of images */
-   max-height: 20rem; /* Minimum height of images */
-   overflow: hidden;
-   border-radius: 8px; /* Optional: Rounded corners */
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow effect */
- }
- 
- .hotelImg {
-   width: 100%;
-   height: auto;
-   object-fit: cover; 
-   transition: 0.5s;
- }
- 
- .hotelImg:hover {
-   transform: scale(1.10);
- }
- 
- .hotelDetails {
-   display: flex;
-   justify-content: space-between;
-   margin-top: 20px;
- }
- 
- .hotelDetailsTexts {
-   flex: 2;
- }
- 
- .hotelTitle {
-   font-size: 2rem;
-   color: #333;
- }
- 
- .hotelDesc {
-   font-size: 1rem;
-   color: #666;
- }
- 
- .hotelDetailsPrice {
-   flex: 1;
-   padding-left: 20px;
-   border-left: 1px solid #eee;
- }
- 
- .hotelDetailsPrice h1 {
-   font-size: 1.5rem;
-   color: #333;
- }
- 
- .hotelDetailsPrice span {
-   display: block;
-   margin: 10px 0;
-   color: #666;
- }
- 
- .hotelDetailsPrice h2 {
-   font-size: 1.5rem;
-   color: #007bff;
-   margin: 10px 0;
- }
- 
- .hotelDetailsPrice button {
-   background-color: #007bff;
-   color: #fff;
-   border: none;
-   padding: 10px 20px;
-   border-radius: 5px;
-   cursor: pointer;
-   font-size: 16px;
-   font-weight: bold;
-   transition: background-color 0.3s;
- }
- 
- .hotelDetailsPrice button:hover {
-   background-color: #0056b3;
- }
- 
+  width: 85%;
+  max-width: 1200px;
+  margin: 13rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hotelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eeeeee;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hotelTitle {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.bookNow {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.bookNow:hover {
+  background-color: #0056b3;
+}
+
+.hotelInfo {
+  margin-bottom: 2rem;
+}
+
+.hotelAddress {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.hotelAddress .fa {
+  margin-right: 0.5rem;
+  color: #007bff;
+}
+
+.hotelDistance,
+.hotelPriceHighlight {
+  display: block;
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.hotelPriceHighlight {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.hotelImages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hotelImgWrapper {
+  flex: 1 1 calc(33.333% - 1rem);
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hotelImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.hotelImg:hover {
+  transform: scale(1.1);
+}
+
+.hotelDetails {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.hotelDetailsTexts {
+  flex: 2;
+}
+
+.hotelSubtitle {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.hotelDesc {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.hotelDetailsPrice {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hotelDetailsPrice h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.hotelDetailsPrice span {
+  display: block;
+  margin: 10px 0;
+  color: #666;
+}
+
+/* Modal Styling */
+/* Modal Styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+.activeModel {
+  display: block;
+}
+
+.modalContent {
+  background-color: #fefefe;
+  margin: 9rem auto; /* 5% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position:relative;
+}
+
+.close {
+  color: #555;
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #000;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modalDetails {
+  margin-top: 20px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.inputControl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.inputControl button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.inputControl button:hover {
+  color: #007bff;
+}
+
+.inputControl span {
+  font-size: 16px;
+  color: #333;
+}
+
+.readonly {
+  margin: 20px 10px;
+}
+
+.readonly input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.confirmBtn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.confirmBtn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 10px rgba(0, 91, 187, 0.2);
+}

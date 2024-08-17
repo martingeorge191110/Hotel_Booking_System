@@ -113,7 +113,6 @@ export default function Hotel() {
 
                 const data = await response.json();
                 setHotels(data.data);
-                console.log(data);
             } catch (err) {
                 console.log("Error fetching data:", err);
             }
@@ -212,7 +211,8 @@ export default function Hotel() {
                                             state:{
                                                 id:hotel._id,
                                                 days:days,
-                                                attend: options
+                                                attend: options,
+                                                date:`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`
                                             }
                                         })
                                     }} className="check-btn">See availability</button>

@@ -87,6 +87,7 @@ export default function Header() {
         setNavigate(navigate == index ? -index : index);
     }
 
+
     // handling each section
     useEffect(() => {
         const facListIndex = facilitiesList.current.children;
@@ -107,6 +108,21 @@ export default function Header() {
             classList.add("activeDiv");
     }
 
+    const profileNavigation = () => {
+        hist.push({
+            pathname:"/user/:id"
+        })
+    }
+
+    const logOut = () => {
+        setAuth(false)
+        localStorage.setItem("user", "")
+        localStorage.setItem("token", "")
+        hist.push({
+            pathname: "/"
+        })
+    }
+
     return (
         <header>
             <nav className="navOne">
@@ -120,11 +136,11 @@ export default function Header() {
                     <div className="profile">
                         <a onClick={profileHandler}>Profile</a>
                         <div ref={profileRef}>
-                            <li><button>{user.userName}</button></li>
+                            <li><button onClick={() => profileNavigation()}>{user.userName}</button></li>
                             <li><button>Hotel Books</button></li>
                             <li><button>Flight Books</button></li>
                             <hr />
-                            <li><button>Log-Out</button></li>
+                            <li><button onClick={() => logOut()}>Log-Out</button></li>
                         </div>
                     </div>
                 )}

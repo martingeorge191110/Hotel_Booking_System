@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import './intro.css';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
@@ -66,7 +66,6 @@ export default function Intro() {
             <div className="intro">
                 <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem officia porro perferendis dolore </p>
-                {/* <Link to="/register">Register / Sign In</Link> */}
                 <div className="search">
                     <div className="location">
                         <FontAwesomeIcon className="activeOpacity" icon={faMapMarkerAlt} />

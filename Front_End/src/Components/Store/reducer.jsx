@@ -1,5 +1,6 @@
 const loginState = {
-   userInf: JSON.parse(localStorage.getItem("user")) || null
+   userInf: localStorage.getItem("user") !== "" ? JSON.parse(localStorage.getItem("user")) : null,
+   userToken: localStorage.getItem("token") !== "" ? localStorage.getItem("token") : null,
 }
 
 const loginReducer = (state = loginState, action) => {

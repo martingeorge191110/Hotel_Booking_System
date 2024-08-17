@@ -21,19 +21,9 @@ const addUser = async (req, res) => {
             userPassword: hash,
         });
 
-        const token = jwt.sign({
-            userId: userDoc._id
-        }, process.env.JWT, { expiresIn: '1h' });
-
-        // Set the token as a cookie
-        return res.cookie("key", token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'None'
-        }).status(200).json({
+        return res.status(200).json({
             success: true,
-            data: userDoc,
-            token: token
+            data: userDoc
         });
     } catch (err) {
         res.status(500).json({
@@ -64,11 +54,15 @@ const getUser = async (req, res) => {
             });
         }
 
+        const token = jwt.sign({
+            userId: userDoc._id
+        }, process.env.JWT)
+
         res.status(200).json({
             success: true,
             message: "User authenticated successfully",
             data: userDoc,
-            token: req.cookies.key // Return the token from the cookie
+            token: token
         });
     } catch (err) {
         console.error("Error in getUser:", err);
@@ -80,4 +74,65 @@ const getUser = async (req, res) => {
     }
 };
 
-export { addUser, getUser };
+// send profile details by token
+const getProfile = async (req, res) => {
+    try {
+        const {userId} = await req.userId
+        const {userName, userEmail, userPhone, age} = await User.findOne({
+            _id: userId
+        })
+        res.status(200).json({
+            success: true,
+            data: {
+                name: userName,
+                email: userEmail,
+                phone: userPhone || null,
+                age: age || null
+            }
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error in network",
+            error: err.message
+        });
+    }
+};
+
+const updateUser = async (req, res) => {
+    try {
+        const {userId} = await req.userId
+        const {name, email, phone, age} = await req.body
+        const user = await User.updateOne({
+            _id: userId
+        }, {
+            userName: name,
+            userEmail: email,
+            userPhone: phone || null,
+            age: age || null
+        }, {
+            runValidator: true
+        })
+        const newUser = await User.findOne({
+            _id: userId
+        })
+        if (user) {
+            return res.status(200).json({
+                success: true,
+                data: newUser
+            })
+        } else {
+            return res.status(404).json({
+                success: false,
+                message: "NO Data Updated"
+            })
+        }
+    } catch (err) {
+        return res.status(500).json({
+            success: false, 
+            message: new Error(err)
+        })
+    }
+}
+
+export { addUser, getUser , getProfile, updateUser};

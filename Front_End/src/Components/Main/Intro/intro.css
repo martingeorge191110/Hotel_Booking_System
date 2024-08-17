@@ -27,7 +27,7 @@
     border: 1px solid var(--secondary-color);
 }
 
-.mainP .search {
+/* .mainP .search {
     width: 100%;
     margin-top: 3rem;
     display: flex;
@@ -126,4 +126,144 @@
     color: var(--primary-color);
     border-radius: 0.3rem;
     padding: 0.2rem 0.4rem;
+} */
+
+.mainP .search {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.5rem;
+    border: 1px solid #d1d1d1;
+    color: #333;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mainP .search div .activeOpacity {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.mainP .search div .activeOpacity:hover {
+    opacity: 1;
+}
+
+.mainP .search .location input {
+    outline: none;
+    border: none;
+    opacity: 0.8;
+    padding: 0.7rem;
+    background-color: transparent;
+    color: #333;
+    transition: opacity 0.3s;
+}
+
+.mainP .search .location input::placeholder {
+    color: #888;
+}
+
+.mainP .search .location input:focus {
+    opacity: 1;
+}
+
+.mainP .search .date {
+    position: relative;
+    cursor: pointer;
+}
+
+.mainP .search .date .dateRange {
+    position: absolute;
+    max-height: 0rem;
+    overflow: hidden;
+    top: 4rem;
+    z-index: 100;
+    left: -2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.mainP .search .date .active {
+   opacity: 1;
+   display: block;
+   max-height: 100rem;
+}
+
+.mainP .search .numbers .active {
+    opacity: 1;
+    max-height: 20rem;
+}
+
+.mainP .search .submit {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: 0.7rem 1.5rem;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.mainP .search .submit:hover {
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+    border: none;
+    box-shadow: none;
+}
+
+.mainP .search .numbers {
+    position: relative;
+    cursor: pointer;
+    
+}
+
+.mainP .search .numbers ul {
+    position: absolute;
+    padding: 0.5rem;
+    opacity: 0;
+    overflow: hidden;
+    max-height: 0rem;
+    top: 3.5rem;
+    list-style: none;
+    background-color: #ffffff;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 800;
+    transition: 0.5s;
+}
+
+.mainP .search .numbers ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.mainP .search .numbers ul li span {
+    width: 7rem;
+    font-weight: 700;
+}
+
+.mainP .search .numbers ul li button {
+    border: 1px solid var(--primary-color);
+    background-color: #ffffff;
+    color: var(--primary-color);
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mainP .search .numbers ul li button:hover {
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+    box-shadow: none;
 }

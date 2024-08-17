@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState, useRef} from "react";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
@@ -14,9 +14,9 @@ export default function Inputs () {
     const returnDiv = useRef(null)
 
     const [selectedDate, setSelectedDate] = useState(null);
-    const [fromDay, setFromDay] = useState(null);
+    const [fromDay, setFromDay] = useState("");
     const [selectTwoDate, setSelectedTwoDate] = useState(null);
-    const [toDay, setToDay] = useState(null);
+    const [toDay, setToDay] = useState("");
 
     const handleDateChange = (newDate) => {
         const dayName = newDate ? newDate.format('dddd') : '';
