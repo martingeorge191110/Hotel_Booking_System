@@ -3,6 +3,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 // import dayjs from 'dayjs';
+import './inputs.css'
 
 
 export default function Inputs () {
@@ -65,7 +66,7 @@ export default function Inputs () {
 
     return (
         <>
-        <div className="inputs">
+          <div className="inputs">
             <input onChange={(e) => inputsHandler(e.currentTarget.value, 1)} type="text" placeholder="From" value={from}/>
             <input onChange={(e) => inputsHandler(e.currentTarget.value, 2)} type="text" placeholder="To" value={to}/>
             <div className="fromCal">
@@ -81,7 +82,7 @@ export default function Inputs () {
                     </LocalizationProvider>
                 </div>
             <button className="search-btn">Search</button>
-        </div>                
+        </div>              
         </>
     )
 }

@@ -27,7 +27,7 @@ function App() {
           <Route path="/flights" exact component={Flight}/>
           <Route path="/hotels/:id" exact component={OneHotel}/>
           <Route path="/user/:id" exact component={Profile}/>
-          {/* <Route path="/result" exact component={Result}/> */}
+          <Route path="/flights/search" exact component={Result}/>
           <Route exact component={MainPage}/>
           </Switch>
       </Router>

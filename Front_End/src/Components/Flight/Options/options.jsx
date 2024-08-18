@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from "react";
-
+import './options.css'
 
 export default function Options () {
 

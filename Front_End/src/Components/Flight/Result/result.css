@@ -1,0 +1,195 @@
+/* General styles for the flight-results section */
+.flight-results {
+  display: flex;
+  padding: 2rem;
+  height: 120vh;
+  margin:11rem auto ;
+  background-color: #f0f4f7;
+}
+
+/* Search container */
+.flight-search-container {
+  flex: 0 0 35%;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 2rem;
+}
+
+/* Title styles */
+.flight-search-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Options container */
+.flight-options {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Individual option styling */
+.flight-option {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 30%;
+  z-index: 100;
+}
+
+/* Dropdown toggle */
+.flight-option span {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #495057;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: #f2f7f9;
+  border-radius: 4px;
+}
+
+/* Dropdown list */
+.flight-option ul {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+  color: #495057;
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.flight-option ul li {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Input styling */
+.flight-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Text inputs */
+.flight-input,
+.flight-date-input {
+  flex: 1;
+  min-width: 15rem;
+  height: 3.5rem;
+  margin: 0.2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: #f2f7f9;
+}
+
+/* Search button styling */
+.flight-search-btn {
+  width: 12.5rem;
+  background-color: #0073ef;
+  color: white;
+  cursor: pointer;
+}
+
+.flight-search-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Flight results container */
+.flight-results-container {
+  flex: 1;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Results title */
+.flight-results-title {
+  font-size: 2rem;
+  color: #0073ef;
+  margin-bottom: 1.5rem;
+}
+
+/* Flights list styling */
+.flights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Flight item styling */
+.flight-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.flight-item:hover {
+  transform: scale(1.02);
+}
+
+/* Flight information */
+.flight-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.flight-detail {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+/* Flight details */
+.flight-price,
+.flight-duration {
+  margin: 0.5rem 0;
+  color: #0073ef;
+  font-weight: bold;
+}
+
+.flight-book-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #0073ef;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.flight-book-btn:hover {
+  background-color: #0056b3;
+}
