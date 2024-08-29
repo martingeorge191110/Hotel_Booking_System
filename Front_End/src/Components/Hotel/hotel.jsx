@@ -25,7 +25,8 @@ export default function Hotel() {
         ]
     );
 
-    const [days,setDays] = useState(Math.ceil(date[0].endDate - date[0].startDate) / (1000 * 60 * 60 * 24))
+    const initalDays = Math.ceil(date[0].endDate - date[0].startDate) / (1000 * 60 * 60 * 24)
+    const [days,setDays] = useState(location.location.state ? location.location.state.days : initalDays)
     useEffect(() => {
         const dayCount = Math.ceil((date[0].endDate - date[0].startDate) / (1000 * 60 * 60 * 24));
         setDays(dayCount);
@@ -161,15 +162,15 @@ export default function Hotel() {
                         </li>
                         <li>
                             <span><FaUsers /> Adult</span>
-                            <input onChange={(event) => { optionsHandler(event.currentTarget); }} id="in-1" type="number" value={options.adult} />
+                            <input onChange={(event) => { optionsHandler(event.currentTarget); }} id="in-1" type="number" value={options.adult || 1} />
                         </li>
                         <li>
                             <span><FaUsers /> Children</span>
-                            <input onChange={(event) => { optionsHandler(event.currentTarget); }} id="in-2" type="number" value={options.children} />
+                            <input onChange={(event) => { optionsHandler(event.currentTarget); }} id="in-2" type="number" value={options.children || 0} />
                         </li>
                         <li>
                             <span><BsFillHouseFill /> Rooms</span>
-                            <input onChange={(event) => { optionsHandler(event.currentTarget); }} id="in-3" type="number" value={options.rooms} />
+                            <input onChange={(event) => { optionsHandler(event.currentTarget); }} id="in-3" type="number" value={options.rooms || 1} />
                         </li>
                     </ul>
                     <button onClick={() =>{if (!click) return; fetSpecData()}} className="search-btn">Search</button>
@@ -212,6 +213,7 @@ export default function Hotel() {
                                                 id:hotel._id,
                                                 days:days,
                                                 attend: options,
+                                                dateRange: date,
                                                 date:`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`
                                             }
                                         })

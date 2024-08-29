@@ -4,5 +4,10 @@ const userLogIn = (userInformation) => {
       payload: userInformation
    }
 }
-
-export {userLogIn}
+const Travelers = (options) => {
+   return {
+      type: "FLIGHT_OPTIONS",
+      payload: options
+   }
+}
+export {userLogIn, Travelers}

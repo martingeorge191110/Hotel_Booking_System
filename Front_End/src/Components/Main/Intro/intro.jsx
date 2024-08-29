@@ -7,7 +7,7 @@ import { faMapMarkerAlt, faCalendarAlt, faUser } from '@fortawesome/free-solid-s
 import { DateRange } from 'react-date-range';
 import { format } from "date-fns";
 import Input from "../../Input/input";
-import { Link, useHistory } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 
 export default function Intro() {
     const destRef = useRef(null);
@@ -19,9 +19,9 @@ export default function Intro() {
         }
     ]);
     const [attend, setAttend] = useState({
-        adult: 0,
+        adult: 1,
         child: 0,
-        room: 0,
+        room: 1,
     });
     const history = useHistory();
 
@@ -46,18 +46,18 @@ export default function Intro() {
     function removeNumbers(index) {
         if (Object.values(attend)[index - 1] === 0) return;
         if (index === 1) {
-            setAttend({ ...attend, adult: attend.adult - 1 });
+            setAttend({ ...attend, adult: attend.adult > 1 ? attend.adult - 1 : 1});
         } else if (index === 2) {
             setAttend({ ...attend, child: attend.child - 1 });
         } else {
-            setAttend({ ...attend, room: attend.room - 1 });
+            setAttend({ ...attend, room: attend.room > 1 ? attend.room - 1 : 1});
         }
     }
 
     function clickHandler(index) {
         history.push({
             pathname: "/hotels",
-            state: { dest: destRef.current.value ? destRef.current.value : "", date, attend, index: index }
+            state: { dest: destRef.current.value ? destRef.current.value : "", date, attend, index: index, days: Math.ceil(date[0].endDate - date[0].startDate) / (1000 * 60 * 60 * 24) }
         });
     }
 

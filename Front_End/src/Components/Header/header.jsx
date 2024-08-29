@@ -110,14 +110,17 @@ export default function Header() {
 
     const profileNavigation = () => {
         hist.push({
-            pathname:"/user/:id"
+            pathname:`/user/:id`
         })
+        window.location.reload()
     }
 
     const logOut = () => {
         setAuth(false)
         localStorage.setItem("user", "")
         localStorage.setItem("token", "")
+        window.location.reload()
+        console.log("reloaded")
         hist.push({
             pathname: "/"
         })

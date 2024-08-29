@@ -6,6 +6,8 @@ import mongoose from "mongoose";
 import Auth from "./Routers/userInf.js";
 import Hotels from './Routers/hotelInf.js'
 import cookieParser from "cookie-parser";
+import UserHotel from './Routers/user_hotel_inf.js'
+import Flights from './Routers/flightInf.js'
 
 
 const app = express();
@@ -33,6 +35,8 @@ mongoose.connect(uri)
 
 app.use("/api/user", Auth);
 app.use("/api/hotels", Hotels)
+app.use("/api/user_hotel", UserHotel)
+app.use("/api/flights", Flights)
 
 app.listen(Port, () => {
   console.log("Now we are listening to port number " + Port + "...");

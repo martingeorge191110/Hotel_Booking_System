@@ -1,12 +1,17 @@
 import React from "react";
-import Options from "../Options/options";
-import Inputs from "../Inputs/inputs";
 import './result.css'
 
 
 export default function Result () {
 
 
+
+  const elementTogle = (elementClassList) => {
+    if (elementClassList.contains("active"))
+      elementClassList.remove("active")
+    else
+      elementClassList.add("active")
+  }
 
     return (
         <>
@@ -15,7 +20,7 @@ export default function Result () {
     <h1 class="flight-search-title">Search Flights</h1>
     <div class="flight-options">
       <div class="flight-option trip-type">
-        <span class="trip-type-toggle">Trip Type<i className="bi bi-chevron-down"></i></span>
+        <span onClick={(e) => {elementTogle(e.currentTarget.parentElement.children[1].classList)}} class="trip-type-toggle">Trip Type<i className="bi bi-chevron-down"></i></span>
         <ul class="trip-type-list">
           <li class="trip-type-item">Return</li>
           <li class="trip-type-item">One Way</li>
@@ -23,7 +28,7 @@ export default function Result () {
         </ul>
       </div>
       <div class="flight-option travelers">
-        <span class="travelers-toggle">Travelers<i className="bi bi-chevron-down"></i></span>
+        <span onClick={(e) => {elementTogle(e.currentTarget.parentElement.children[1].classList)}} class="travelers-toggle">Travelers<i className="bi bi-chevron-down"></i></span>
         <ul class="travelers-list">
           <li class="travelers-item">
             <span>Adult</span>
@@ -46,7 +51,7 @@ export default function Result () {
         </ul>
       </div>
       <div class="flight-option class-type">
-        <span class="class-type-toggle">Class<i class="bi bi-chevron-down"></i></span>
+        <span onClick={(e) => {elementTogle(e.currentTarget.parentElement.children[1].classList)}} class="class-type-toggle">Class<i class="bi bi-chevron-down"></i></span>
         <ul class="class-type-list">
           <li class="class-type-item">Economy</li>
           <li class="class-type-item">Business</li>

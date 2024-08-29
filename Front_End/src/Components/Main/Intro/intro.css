@@ -27,7 +27,7 @@
     border: 1px solid var(--secondary-color);
 }
 
-/* .mainP .search {
+/*.mainP .search {
     width: 100%;
     margin-top: 3rem;
     display: flex;
@@ -244,6 +244,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     margin: 0.5rem 0;
 }
 

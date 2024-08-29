@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import './flight.css'
 import Inputs from "./Inputs/inputs";
 import Options from "./Options/options";
 
 export default function Flight () {
 
+    const travSelector = useSelector(state => state.travelers)
+    const[travelers, setTraverlers] = useState(travSelector)
+
+    useEffect(() => {
+        console.log(travelers)
+    }, [travSelector])
 
     return (
         <>

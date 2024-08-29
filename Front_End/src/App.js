@@ -13,6 +13,7 @@ import Flight from './Components/Flight/flight';
 import Result from './Components/Flight/Result/result';
 import OneHotel from './Components/Hotel/OneHotel/oneHote';
 import Profile from './Components/Profile/profile';
+import Payment from './Components/Payment/payment.jsx';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/hotels/:id" exact component={OneHotel}/>
           <Route path="/user/:id" exact component={Profile}/>
           <Route path="/flights/search" exact component={Result}/>
+          <Route path="/hotels/payment/:id" exact component={Payment}/>
           <Route exact component={MainPage}/>
           </Switch>
       </Router>

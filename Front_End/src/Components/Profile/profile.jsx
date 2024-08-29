@@ -1,8 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState} from "react";
 import { useSelector } from "react-redux";
+import ClipLoader from "react-spinners/ClipLoader";
 import './profile.css'
 
-
+const override = {
+  display: "block",
+  margin: "20rem auto",
+  borderColor: "rgb(2, 2, 66)",
+};
 
 export default function Profile () {
 
@@ -43,7 +48,6 @@ export default function Profile () {
       age: age
     })
   }
-
     // inputs to change information stetes
     const [nameIn, setNameIn] = useState(user.name)
     const [phoneIn, setPhoneIn] = useState(user.phone)
@@ -82,16 +86,47 @@ export default function Profile () {
     }
   }
 
+  const [loading, setLoading] = useState(true)
+  let [color, setColor] = useState("#ffffff");
+  const [hotelBooks, setHotelBooks] = useState()
+  // fetch hotel Books Data
+  const fetchHotelBooks = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/user_hotel/get_books", {
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          token: userToken
+        })
+      })
+
+      if (!response.ok)
+          throw new Error(await response.json().message)
+      const data = await response.json();
+
+      setHotelBooks(data.data)
+      console.log(data)
+    } catch (err) {
+      console.log("Error Found:" , err)
+    }
+  }
+
   useEffect(() => {
+    setTimeout(() => {
+    // stop loading
+    setLoading(false)
+    }, 2000);
     // user data loading during open the profile page
     fetchData()
-    let formClasses = form.current.classList
+    // Hotel Books fetching
+    fetchHotelBooks()
+    // let formClasses = form.current.classList
 
-    if (formClasses.contains("hidden") === false)
-        formClasses.remove("hidden")
-
+    // if (formClasses.contains("hidden") === false)
+    //     formClasses.remove("hidden")
   }, [])
-
   // Function to toggle the form inputs
   const toggleForm = () => {
     let formClasses = form.current.classList
@@ -111,7 +146,15 @@ export default function Profile () {
       setAgeIn(Number(value))
     }
    return (
-      <>
+      <>{
+        loading ? <ClipLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      /> :
      <div className="profile-container">
       <div className="profile-info">
         <div className="profile-details">
@@ -133,24 +176,21 @@ export default function Profile () {
       <div className="sections">
         <div className="section bookings-section">
           <h3>Past Hotel Bookings</h3>
-          <div className="card booking-card">
-            <h4>Hotel Name: Grand Hotel</h4>
-            <p>City: New York</p>
-            <p>Rating: ★★★★☆</p>
-            <p>Paid: $500</p>
-            <p>Travelers: 2</p>
-            <p>Check-in Date: 2024-01-10</p>
-            <p>Check-out Date: 2024-01-15</p>
-          </div>
-          <div className="card booking-card">
-            <h4>Hotel Name: Beach Resort</h4>
-            <p>City: Miami</p>
-            <p>Rating: ★★★☆☆</p>
-            <p>Paid: $300</p>
-            <p>Travelers: 1</p>
-            <p>Check-in Date: 2024-02-05</p>
-            <p>Check-out Date: 2024-02-10</p>
-          </div>
+          {
+            hotelBooks.length > 0 ? hotelBooks.map((book) => {
+              return (
+                <div className="card booking-card">
+                  <h4>Hotel Name: {book.name}</h4>
+                  <p>City: {book.city}</p>
+                  <p>Rating: ★★★★☆</p>
+                  <p>Paid: ${book.totalPrice}</p>
+                  <p>Travelers: {`[Adult: ${book.travelers.adult}, Children: ${book.travelers.children}]`}</p>
+                  <p>Check-in Date: {book.startDate}</p>
+                  <p>Check-out Date: {book.endDate}</p>
+                </div>
+              )
+            }) : "NO Hotel Books"
+          }
         </div>
 
         <div className="section flights-section">
@@ -173,6 +213,6 @@ export default function Profile () {
       </div>
     </div>
 
-      </>
+}</>
 )
 }

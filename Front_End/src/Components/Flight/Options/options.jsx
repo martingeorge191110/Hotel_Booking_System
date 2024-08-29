@@ -1,4 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
+import { useDispatch } from "react-redux";
+import { Travelers } from "../../Store/action";
 import './options.css'
 
 export default function Options () {
@@ -15,7 +17,8 @@ export default function Options () {
       condition:true
     })
     const [travelers,setTraverlers] = useState(1)
-    
+    const dispatch = useDispatch()
+
     useEffect(() => {
       setListOne(listOneRef.current.children[1].children[0].textContent)
       setListTwo(listTwoRef.current.children[1].children[0].textContent)
@@ -89,6 +92,7 @@ export default function Options () {
           
         }
         setTraverlers(travelers + 1)
+        dispatch(Travelers(attend))
       }
 
       function removeAttend (type) {
@@ -118,6 +122,8 @@ export default function Options () {
 
         if (condition)
           setTraverlers(travelers - 1)
+
+        dispatch(Travelers(attend))
       }
 
     return (
