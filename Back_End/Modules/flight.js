@@ -5,6 +5,10 @@ const classes_schema = mongoose.Schema({
       type: String,
       required: true
    }, 
+   tickets: {
+      type: Number,
+      required: true
+   },
    price: {
       type: Number,
       required: true
@@ -18,6 +22,14 @@ const flight_schema = mongoose.Schema({
       unique: true
    },
    arrivalCity:{ // To
+      type: String,
+      required: true
+   },
+   availableTickets: {
+      type: Number,
+      required: true
+   },
+   date:{
       type: String,
       required: true
    },
