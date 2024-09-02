@@ -4,10 +4,14 @@ const userLogIn = (userInformation) => {
       payload: userInformation
    }
 }
-const Travelers = (options) => {
+/**
+ * Function to store all searching items
+ */
+const flightData = (serachingData) => {
    return {
-      type: "FLIGHT_OPTIONS",
-      payload: options
+      type: "FLIGHT_SEARCH",
+      payload: serachingData
    }
 }
-export {userLogIn, Travelers}
+
+export {userLogIn, flightData}

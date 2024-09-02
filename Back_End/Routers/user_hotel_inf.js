@@ -4,7 +4,9 @@ import { verifyToken } from '../MiddleWares/TokenVerification/verifyToken.js'
 
 const router = express.Router()
 
-router.route("/book").post(verifyToken, bookHotel)
-router.route("/get_books").post(verifyToken, getBooks)
+router.use(verifyToken)
+
+router.route("/book").post( bookHotel)
+router.route("/get_books").post( getBooks)
 
 export default router

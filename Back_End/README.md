@@ -116,7 +116,7 @@
     ⬇
     [flight_schema] (number, arrivalCity, classes [classes_schema])
         ⬇
-        [classes_schema] (flightClass, price)
+        [classes_schema] (flightClass, tickets,price)
     </pre>
 
 <h2>Usage and Integration 🔧</h2>

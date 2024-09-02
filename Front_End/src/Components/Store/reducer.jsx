@@ -1,7 +1,7 @@
 const loginState = {
    userInf: localStorage.getItem("user") !== "" ? JSON.parse(localStorage.getItem("user")) : null,
    userToken: localStorage.getItem("token") !== "" ? localStorage.getItem("token") : null,
-   travelers: null
+   flightSearch: JSON.parse(sessionStorage.getItem("flight")) || null
 }
 
 const loginReducer = (state = loginState, action) => {
@@ -10,10 +10,10 @@ const loginReducer = (state = loginState, action) => {
          ...loginState,
          userInf: action.payload
       }
-   else if (action.type === "FLIGHT_OPTIONS")
+   else if (action.type === "FLIGHT_SEARCH")
       return {
          ...loginState,
-         travelers: action.payload
+         flightSearch: action.payload
       }
 
    return loginState

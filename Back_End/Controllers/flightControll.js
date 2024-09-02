@@ -176,7 +176,7 @@ const findDesiredFlights = (airLineArr, fClass, travelersNum, date) => {
 
 			/* Second loop to search on flights with those eickets number and date */
 			airline.flights.forEach((flight) => {
-				if (flight.availableTickets >= travelersNum && flight.date === date) {
+				if (flight.availableTickets >= travelersNum && flight.date === date ) {
 
 					/*	Third loop to check on the classes */
 					for (let flyClass of flight.classes) {
@@ -209,7 +209,7 @@ const findDesiredFlights = (airLineArr, fClass, travelersNum, date) => {
     }
 }
  */
-const getTwoWayFlights = async (req, res) => {
+const getTwoWayFlights = async (req, res, next) => {
 	/**
 	 * Get data from query params and request body
 	 */
@@ -265,11 +265,7 @@ const getTwoWayFlights = async (req, res) => {
 			}
 		}))
 	} catch (err) {
-		return (res.status(500).json({
-			success: false,
-			message: "Connection Failed",
-			error: err
-		}))
+		next(err)
 	}
 }
 

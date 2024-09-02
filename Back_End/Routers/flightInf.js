@@ -1,5 +1,5 @@
 import exprees from 'express'
-import { addFlight, getOneWayFlihgts, getTwoWayFlights } from '../Controllers/flights.js'
+import { addFlight, getOneWayFlihgts, getTwoWayFlights } from '../Controllers/flightControll.js'
 
 const router = exprees.Router()
 

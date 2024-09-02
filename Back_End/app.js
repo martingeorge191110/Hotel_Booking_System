@@ -8,6 +8,8 @@ import Hotels from './Routers/hotelInf.js'
 import cookieParser from "cookie-parser";
 import UserHotel from './Routers/user_hotel_inf.js'
 import Flights from './Routers/flightInf.js'
+import UserFlightInf from "./Routers/userFlightInf.js"
+import { errorHanlder } from "./MiddleWares/errHnalder.js";
 
 
 const app = express();
@@ -39,6 +41,10 @@ app.use("/api/user", Auth);
 app.use("/api/hotels", Hotels)
 app.use("/api/user_hotel", UserHotel)
 app.use("/api/flights", Flights)
+
+app.use("/api/userFlights/flight", UserFlightInf)
+
+app.use("*", errorHanlder)
 
 app.listen(Port, () => {
   console.log("Now we are listening to port number " + Port + "...");

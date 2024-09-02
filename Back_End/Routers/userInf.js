@@ -7,8 +7,12 @@ const router = express.Router()
 
 router.route("/addUser").post(addUser)
 router.post("/getUser", getUser)
-router.post("/getId",verifyToken, getProfile)
-router.route("/updateUser").put(verifyToken ,updateUser)
+
+/* Verify token middle ware for the following apis */
+router.use(verifyToken)
+
+router.post("/getId", getProfile)
+router.route("/updateUser").put(updateUser)
 
 
 export default router
