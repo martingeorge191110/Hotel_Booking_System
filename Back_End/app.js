@@ -42,7 +42,7 @@ app.use("/api/hotels", Hotels)
 app.use("/api/user_hotel", UserHotel)
 app.use("/api/flights", Flights)
 
-app.use("/api/userFlights/flight", UserFlightInf)
+app.use("/api/userFlights", UserFlightInf)
 
 app.use("*", errorHanlder)
 

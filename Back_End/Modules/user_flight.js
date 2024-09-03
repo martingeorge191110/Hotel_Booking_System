@@ -17,7 +17,7 @@ const flightSchema = mongoose.Schema({
       type: String,
       required: true
    },
-   flightNum: {
+   flightNumber: {
       type: Number,
       required: true
    },
@@ -28,11 +28,15 @@ const flightSchema = mongoose.Schema({
    paid: {
       type: Number,
       required: true
+   },
+   fClass: {
+      type: String,
+      required: true
    }
 })
 
 const userFlightSchema = mongoose.Schema({
-   useId: {
+   userId: {
       type: String,
       required: true,
       unique: true,
@@ -46,6 +50,6 @@ const userFlightSchema = mongoose.Schema({
    flights: [flightSchema]
 })
 
-const UserFlight = mongoose.model("UserHotel", userFlightSchema)
+const UserFlight = mongoose.model("UserFlight", userFlightSchema)
 
 export default UserFlight

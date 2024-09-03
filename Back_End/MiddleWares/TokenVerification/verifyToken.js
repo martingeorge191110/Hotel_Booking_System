@@ -21,18 +21,5 @@ const verifyToken = (req, res, next) => {
     next()
 };
 
-// const verifyUser = (req, res, next) => {
-//     verifyToken(req, res, () => {
-//         if (req.user) {
-//             next();
-//         } else {
-//             console.log("req.user not exist");
-//             res.status(401).json({
-//                 success: false,
-//                 message: "You are not authorized"
-//             });
-//         }
-//     });
-// };
 
 export { verifyToken };

@@ -156,13 +156,15 @@ export default function Flight () {
 		if (condition)
 		  setTraverlers(travelers - 1)
 		}
+
 		useEffect(() => {
-		if (bodyData.travelersNum !== travelers) {
-			setBodyData({
-				...bodyData, travelersNum: travelers
-			})
-		}
-		}, [travelers])
+			if (bodyData.travelersNum !== travelers) {
+				setBodyData({
+					...bodyData, travelersNum: travelers
+				})}
+				console.log(travelers)
+			}, [attend])
+
 	/**
 	 * Inputs Functionalities
 	 */
@@ -330,11 +332,15 @@ export default function Flight () {
 			<button className="search-btn" onClick={() => {
 				if (flghtState && queryData.from !== "" && queryData.to !== "" && bodyData.dates.arrivingDate) {
 					dispatch(flightData({
-						flghtState, queryData, bodyData
+						flghtState, queryData, bodyData , travelers: {
+							adult: attend.adult, children: attend.children, senior: attend.seniors 
+						}
 					}))
 					setValid(true)
 					sessionStorage.setItem("flight", JSON.stringify({
-						flghtState, queryData, bodyData
+						flghtState, queryData, bodyData, travelers: {
+							adult: attend.adult, children: attend.children, senior: attend.seniors 
+						}
 					}))
 					history.push({
 						pathname: "/flights/?search=flights"
