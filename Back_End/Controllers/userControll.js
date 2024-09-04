@@ -56,7 +56,9 @@ const getUser = async (req, res) => {
 
         const token = jwt.sign({
             userId: userDoc._id
-        }, process.env.JWT)
+        }, process.env.JWT, {
+            expiresIn: process.env.EXP_TIME
+        })
 
         res.status(200).json({
             success: true,
