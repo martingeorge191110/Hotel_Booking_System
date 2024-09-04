@@ -88,4 +88,29 @@ const addUserFlight = async (req, res, next) => {
 	}
 }
 
-export {addUserFlight, updateAirline}
+const getUserFlights = async (req, res) => {
+	const {userId} = req.userId
+	try {
+		const userFlights = await UserFlight.findOne({
+			userId: userId
+		}).select('-flights._id')
+		if (!userFlights) {
+			return (res.status(404).json({
+				succes: false,
+				data: []
+			}))
+		}
+		return (res.status(200).json({
+			succes: true,
+			user: userFlights.userEmail.split('@')[0],
+			data: userFlights.flights
+		}))
+	} catch (err) {
+		return (res.status(500).json({
+			succes: false,
+			message: "Connection Failed or somthing went wrong"
+		}))
+	}
+}
+
+export {addUserFlight, updateAirline, getUserFlights}

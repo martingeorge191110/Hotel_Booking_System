@@ -12,7 +12,7 @@ const override = {
 export default function Profile () {
 
   const userToken = useSelector(state => state.userToken)
-  // console.log(userToken)
+
   const [user, setUser] = useState({
     name: "",
     email:"",
@@ -107,21 +107,48 @@ export default function Profile () {
       const data = await response.json();
 
       setHotelBooks(data.data)
-      console.log(data)
     } catch (err) {
       console.log("Error Found:" , err)
     }
   }
 
+  /**
+   * Fetch user flight books
+   */
+  const [flights, setFlights] = useState([])
+  const fetchFlightBooks = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/userFlights", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          token: userToken
+        })
+      })
+
+      const data = await response.json()
+      if (!response.ok)
+          throw new Error(data.message || "Connection Failed or somthing went wrong")
+
+      setFlights(data.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   useEffect(() => {
     setTimeout(() => {
-    // stop loading
+    /* stop loading */
     setLoading(false)
     }, 2000);
-    // user data loading during open the profile page
+    /* user data loading during open the profile page */
     fetchData()
-    // Hotel Books fetching
+    /* Hotel Books fetching */
     fetchHotelBooks()
+    /* Flight Books Fetching */
+    fetchFlightBooks()
     // let formClasses = form.current.classList
 
     // if (formClasses.contains("hidden") === false)
@@ -195,20 +222,20 @@ export default function Profile () {
 
         <div className="section flights-section">
           <h3>Past Flight Bookings</h3>
-          <div className="card flight-card">
-            <h4>Flight Class: Business</h4>
-            <p>Travelers: 2</p>
-            <p>Paid: $1000</p>
-            <p>Arrival Date: 2024-03-01</p>
-            <p>Return Date: 2024-03-10</p>
-          </div>
-          <div className="card flight-card">
-            <h4>Flight Class: Economy</h4>
-            <p>Travelers: 1</p>
-            <p>Paid: $600</p>
-            <p>Arrival Date: 2024-04-05</p>
-            <p>Return Date: 2024-04-15</p>
-          </div>
+          {flights.length > 0 ? flights.map((flight) => {
+            return (
+              <div className="card flight-card">
+                <h4>Airline: {flight.airline}</h4>
+                <p>Flight Class: {flight.fClass}</p>
+                <p>Airport Name: {flight.airport}</p>
+                <p>Flight Number: {flight.flightNumber}</p>
+                <p>Travelers: {`[Adult: ${flight.travelers.adult}, Children: ${flight.travelers.children}, Seniors: ${flight.travelers.senior}]`}</p>
+                <p>Paid: ${flight.paid}</p>
+                <p>From: {flight.from}</p>
+                <p>Arrival City: {flight.to}</p>
+              </div>
+            )
+          }): "Loading ..." }
         </div>
       </div>
     </div>
